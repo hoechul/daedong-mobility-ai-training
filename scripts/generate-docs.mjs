@@ -468,6 +468,211 @@ async function buildBatteryWarranty() {
   return saveDoc(doc, "배터리_보증정책.pdf");
 }
 
+// ---------------------------------------------------------------------------
+// 6~8. e-ZTR(전동 제로턴 잔디깎이) 시장 규모와 전망 — 미국 · 일본 · 유럽
+// 실습 미션 4(프로젝트 기능) 완성 예시 산출물. 수치는 모두 학습용 가상
+// 추정치이며, 실제 시장조사 데이터가 아닙니다.
+// ---------------------------------------------------------------------------
+function eztrDisclaimer(doc) {
+  doc.moveDown(0.2);
+  doc.rect(56, doc.y, doc.page.width - 112, 34).fill(BRAND);
+  doc
+    .fillColor("#ffffff")
+    .font("bold")
+    .fontSize(9)
+    .text(
+      "⚠ 본 리포트는 AI 실습 교육(프로젝트 기능) 완성 예시입니다. 모든 수치는 학습용 가상 추정치이며 실제 시장 데이터가 아닙니다.",
+      66,
+      doc.y + 10,
+      { width: doc.page.width - 132 }
+    );
+  doc.moveDown(1.6);
+  doc.fillColor(INK).font("regular").fontSize(10.5);
+}
+
+function buildEztrMarketReport({
+  region,
+  docNo,
+  filename,
+  marketOverview,
+  sizeTable,
+  players,
+  channels,
+  consumerLike,
+  consumerDislike,
+  regulation,
+  outlook,
+}) {
+  return async function build() {
+    const doc = newDoc();
+    header(doc, {
+      title: `e-ZTR 시장 규모와 전망 – ${region}`,
+      subtitle: "실습 미션 4 완성 예시 · 프로젝트 기능 리서치 산출물 샘플",
+      docNo,
+    });
+    eztrDisclaimer(doc);
+
+    heading(doc, "1. 시장 개요 (정성)");
+    paragraph(doc, marketOverview);
+
+    heading(doc, "2. 시장 규모 추정 (예시 추정치)");
+    table(doc, sizeTable);
+
+    heading(doc, "3. 주요 판매사 · Selling Point (Zero Turn Mower 기준)");
+    table(doc, players);
+
+    heading(doc, "4. 유통 채널");
+    bullets(doc, channels);
+
+    heading(doc, "5. 구매자 반응 — Why / Why-Not");
+    paragraph(doc, `👍 선호 이유: ${consumerLike}`);
+    paragraph(doc, `👎 비선호 이유: ${consumerDislike}`);
+
+    heading(doc, "6. 규제 환경");
+    paragraph(doc, regulation);
+
+    heading(doc, "7. 전망 및 시사점");
+    bullets(doc, outlook);
+
+    footer(
+      doc,
+      "본 문서는 대동모빌리티 AI 실습 교육(챗봇 프로젝트 기능) 미션 4의 완성 예시이며, 시장 규모 · 점유율 수치는 실제 조사 결과가 아닌 학습용 가상 추정치입니다. 실제 사업 의사결정에는 사용할 수 없으며, 반드시 검증된 시장조사 자료로 교차 확인해야 합니다."
+    );
+
+    return saveDoc(doc, filename);
+  };
+}
+
+const buildEztrMarketUS = buildEztrMarketReport({
+  region: "미국",
+  docNo: "DM-MKT-EZTR-US",
+  filename: "eZTR_시장규모와전망_미국.pdf",
+  marketOverview:
+    "미국 Zero Turn Mower 시장은 상업용(조경업체) 비중이 크고, 최근 배터리 전동화(e-ZTR)가 프리미엄 라인 중심으로 시작되는 초기 단계입니다. 전시회 현장 반응은 아직 판매량 자체는 크지 않다는 인상이 우세하며, 프리미엄 조경 장비 브랜드가 우선 진입하고 있습니다.",
+  sizeTable: {
+    widths: [90, 110, 110, 170],
+    headers: ["연도(예시)", "e-ZTR 대수(예시)", "e-ZTR 매출(예시)", "비고"],
+    rows: [
+      ["2024", "약 6,000대", "약 US$1.1억", "프리미엄 라인 중심 초기 확산"],
+      ["2025", "약 9,000대", "약 US$1.7억", "조경업체 시범 도입 확대"],
+      ["2026(추정)", "약 13,000대", "약 US$2.4억", "Honda 등 신규 진입 예고로 성장 가속 기대"],
+    ],
+  },
+  players: {
+    widths: [80, 90, 90, 210],
+    headers: ["회사", "포지셔닝", "가격대(예시)", "특징"],
+    rows: [
+      ["Toro", "프리미엄", "US$12K~18K", "42~60인치 데크, Commercial 조경업체 타깃"],
+      ["GRAVELY", "프리미엄", "US$11K~16K", "내구성 강조, 딜러망 기반 B2B 영업"],
+      ["Greenworks", "보급형", "US$4K~7K", "42인치급, Residential/Homeowner 타깃"],
+      ["Honda(예고)", "-", "미정", "e-ZTR 라인업 출시 예고, 채널 전략 미공개"],
+    ],
+  },
+  channels: [
+    "Online: 브랜드 자사몰 · Amazon 등 (Residential 소형 모델 위주)",
+    "Big Box Retail: Home Depot 등 대형 리테일 (보급형 중심)",
+    "Turf Care 전문매장: 도시 인근 조경 · 잔디관리 전문점 (Commercial 상담 판매)",
+    "트랙터 OEM 딜러망: 기존 라이딩 트랙터 딜러가 e-ZTR 병행 취급",
+  ],
+  consumerLike:
+    "저소음(주택가 새벽 작업 가능), 배기가스 없는 친환경성, 진동이 적어 장시간 작업 피로도 감소.",
+  consumerDislike:
+    "1회 충전 작업 가능 면적(배터리 용량) 한계, 현장 급속 충전 인프라 부족, Residential 고객 기준 초기 구입비 대비 체감 비용 부담.",
+  regulation:
+    "캘리포니아 등 일부 주는 소형 엔진 배출가스 규제(예: 상업용 소형 엔진 판매 제한 논의)로 전동화에 우호적인 반면, 별도의 e-ZTR 전용 보조금 · 규제는 아직 제한적입니다(주별 상이, 확인 필요).",
+  outlook: [
+    "당장은 Commercial 조경업체의 시범 도입 단계로, 대량 전환보다는 프리미엄 라인 우선 확산이 예상됩니다.",
+    "Honda 등 대형 브랜드 진입 시 가격 경쟁과 인지도 상승으로 Residential 확산이 빨라질 수 있습니다.",
+    "충전 인프라 · 배터리 가격 개선이 Residential 시장 확대의 핵심 변수로 보입니다.",
+  ],
+});
+
+const buildEztrMarketJapan = buildEztrMarketReport({
+  region: "일본",
+  docNo: "DM-MKT-EZTR-JP",
+  filename: "eZTR_시장규모와전망_일본.pdf",
+  marketOverview:
+    "일본은 골프장 · 공원 등 상업 시설 관리 수요가 중심이며, 주택 정원 규모가 미국 대비 작아 소형 데크 위주로 시장이 형성될 것으로 예상됩니다. Yanmar · Kubota · Honda 등 자국 종합 농기계 브랜드의 영향력이 커서, 해외 브랜드보다 로컬 브랜드 중심 채택이 예상됩니다.",
+  sizeTable: {
+    widths: [90, 110, 110, 170],
+    headers: ["연도(예시)", "e-ZTR 대수(예시)", "e-ZTR 매출(예시)", "비고"],
+    rows: [
+      ["2024", "약 1,200대", "약 20억원", "골프장 · 공공시설 시범 도입 중심"],
+      ["2025", "약 1,800대", "약 30억원", "지자체 공원관리 예산 일부 반영"],
+      ["2026(추정)", "약 2,600대", "약 43억원", "로컬 브랜드 신모델 출시로 완만한 성장"],
+    ],
+  },
+  players: {
+    widths: [80, 90, 90, 210],
+    headers: ["회사", "포지셔닝", "가격대(예시)", "특징"],
+    rows: [
+      ["Yanmar", "프리미엄", "300만~450만원", "골프장 · 조경업체 대상 B2B 영업 강점"],
+      ["Kubota", "프리미엄", "320만~470만원", "종합 농기계 딜러망 통한 교차판매"],
+      ["Honda", "중가", "250만~380만원", "소형 정원 · 공공시설 대상 라인업 검토"],
+    ],
+  },
+  channels: [
+    "농협(JA) 계열 대리점: 지방 공공 · 농업 관련 구매처",
+    "홈센터(Kohnan, Cainz 등): Residential 소형 모델 판매",
+    "조경 전문 딜러: 골프장 · 공원 관리업체 대상 B2B 상담 판매",
+    "온라인: 소형 부속 · 액세서리 위주, 본체는 오프라인 상담 선호",
+  ],
+  consumerLike:
+    "주택 밀집 지역에서 소음 민원 부담이 적음, 실내 격납고(차고) 배기가스 없이 보관 가능.",
+  consumerDislike:
+    "정원 면적 대비 상대적으로 높은 초기 구입비 체감, 충전 시간 대비 사용 빈도가 낮은 Residential 고객의 낮은 구매 유인.",
+  regulation:
+    "도시 지역 소음 규제 조례가 저소음 장비에 우호적이나, e-ZTR 전용 보조금은 지자체별로 상이하며 전국 단위 정책은 확인되지 않았습니다(가정).",
+  outlook: [
+    "상업 시설(골프장 · 공원) 중심의 완만한 성장이 예상되며, Residential 확산은 더딜 것으로 보입니다.",
+    "로컬 브랜드(Yanmar · Kubota · Honda)의 자국 딜러망이 진입장벽으로 작용할 가능성이 있습니다.",
+    "저소음 특성이 도심 인근 작업 수요에서 차별화 포인트가 될 수 있습니다.",
+  ],
+});
+
+const buildEztrMarketEurope = buildEztrMarketReport({
+  region: "유럽",
+  docNo: "DM-MKT-EZTR-EU",
+  filename: "eZTR_시장규모와전망_유럽.pdf",
+  marketOverview:
+    "유럽은 도시별 내연기관 정원장비 사용 제한 움직임과 친환경 소비 성향이 맞물려 전동화 전환 속도가 상대적으로 빠른 지역으로 분류됩니다. Husqvarna · STIHL 등 전통 강자가 배터리 라인을 확대하는 동시에, 로봇 잔디깎이(Robot Mower)와의 대체 경쟁도 함께 고려해야 합니다.",
+  sizeTable: {
+    widths: [90, 110, 110, 170],
+    headers: ["연도(예시)", "e-ZTR 대수(예시)", "e-ZTR 매출(예시)", "비고"],
+    rows: [
+      ["2024", "약 2,500대", "약 €450만", "독일 · 북유럽 도시 중심 초기 채택"],
+      ["2025", "약 3,800대", "약 €680만", "일부 도시 내연기관 사용 제한 확대"],
+      ["2026(추정)", "약 5,600대", "약 €1,000만", "조경업체 교체수요 유입"],
+    ],
+  },
+  players: {
+    widths: [80, 90, 90, 210],
+    headers: ["회사", "포지셔닝", "가격대(예시)", "특징"],
+    rows: [
+      ["Husqvarna", "프리미엄", "€9K~14K", "배터리 플랫폼(BLi) 공유로 생태계 구축"],
+      ["STIHL", "프리미엄", "€8.5K~13K", "딜러 네트워크 기반 B2B 영업 강점"],
+      ["Egholm 등 지역 브랜드", "니치/전문", "€10K~20K", "지자체 · 대형 시설 관리용 특화 모델"],
+    ],
+  },
+  channels: [
+    "전문 딜러(Fachhändler): 조경 · 농기계 전문매장, Commercial 상담 판매 중심",
+    "온라인: 액세서리 · 소형 부속 위주",
+    "지자체 조달(공공입찰): 공원 · 도로변 관리용 대량 구매",
+    "농기계 종합 대리점: 트랙터 · 관리기와 교차판매",
+  ],
+  consumerLike:
+    "도시 소음 규제 · 친환경 이미지에 부합, 실내 보관 시 배기가스 우려 없음.",
+  consumerDislike:
+    "로봇 잔디깎이 대비 상대적으로 높은 인건비 필요(자동화 아님), 배터리 가격으로 인한 높은 초기 투자비.",
+  regulation:
+    "독일 · 프랑스 일부 도시는 특정 시간대 내연기관 정원장비 사용을 제한하는 조례를 운영 중인 것으로 알려져 있어 e-ZTR에 우호적이나, EU 차원의 통일 규제는 확인되지 않았습니다(가정, 국가별 확인 필요).",
+  outlook: [
+    "도시 규제 확대가 계속될 경우 Commercial 조경업체의 교체 수요가 성장을 견인할 가능성이 있습니다.",
+    "로봇 잔디깎이와의 용도 구분(대면적 · 고속 작업은 e-ZTR, 상시 관리는 로봇)이 포지셔닝의 핵심이 될 수 있습니다.",
+    "배터리 플랫폼 공유 전략(Husqvarna 등)이 구매 후 확장성 측면에서 경쟁 우위가 될 수 있습니다.",
+  ],
+});
+
 async function main() {
   const files = await Promise.all([
     buildManagerManual(),
@@ -475,6 +680,9 @@ async function main() {
     buildPartsCatalog(),
     buildWarrantyPolicy(),
     buildBatteryWarranty(),
+    buildEztrMarketUS(),
+    buildEztrMarketJapan(),
+    buildEztrMarketEurope(),
   ]);
   files.forEach((f) => console.log("생성됨:", f));
 }

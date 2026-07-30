@@ -47,6 +47,28 @@ export default function Practice() {
                 <p className="mt-4 rounded-lg bg-brand-light px-3 py-2.5 text-xs leading-relaxed text-foreground/70">
                   ⚠️ {mission.note}
                 </p>
+
+                {mission.downloads && (
+                  <div className="mt-4">
+                    <p className="text-xs font-bold text-foreground/70">
+                      {mission.downloads.label}
+                    </p>
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      {mission.downloads.files.map((f) => (
+                        <a
+                          key={f.file}
+                          href={f.file}
+                          download
+                          className="inline-flex items-center gap-1.5 rounded-full border border-border bg-white px-3 py-1.5 text-xs font-semibold text-foreground/80 hover:border-brand hover:text-brand transition-colors"
+                        >
+                          <span>{f.flag}</span>
+                          {f.label} PDF
+                          <span aria-hidden>↓</span>
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
 
               <PromptBox prompt={mission.prompt} />
