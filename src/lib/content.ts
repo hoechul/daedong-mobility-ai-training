@@ -1,11 +1,11 @@
 export const NAV_LINKS = [
   { href: "#overview", label: "교육 개요" },
+  { href: "/studio", label: "챗봇(워크플로우)" },
   { href: "#tools", label: "AI 도구 가이드" },
   { href: "#curriculum", label: "커리큘럼" },
   { href: "#practice", label: "실습 미션" },
   { href: "#tips", label: "활용 팁" },
   { href: "#resources", label: "자료 · 매뉴얼" },
-  { href: "/studio", label: "심화 실습" },
 ];
 
 export const HERO_STATS = [
