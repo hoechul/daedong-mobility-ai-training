@@ -16,7 +16,7 @@ export default function Curriculum() {
         {CURRICULUM.map((item) => (
           <li
             key={item.step}
-            className="flex flex-col gap-4 rounded-2xl border border-border bg-white p-6 sm:flex-row sm:items-center"
+            className="flex flex-col gap-4 rounded-2xl border border-border bg-white p-6 sm:flex-row"
           >
             <div className="flex shrink-0 items-center gap-4 sm:w-40 sm:flex-col sm:items-start sm:gap-1">
               <span className="text-3xl font-extrabold text-brand/25">
@@ -28,7 +28,7 @@ export default function Curriculum() {
               </div>
             </div>
 
-            <div className="hidden h-12 w-px bg-border sm:block" />
+            <div className="hidden w-px self-stretch bg-border sm:block" />
 
             <div className="flex-1">
               <div className="flex items-center gap-2">
@@ -41,6 +41,23 @@ export default function Curriculum() {
               <p className="mt-2 text-sm leading-relaxed text-muted">
                 {item.desc}
               </p>
+
+              <div className="mt-3 rounded-xl bg-brand-light px-4 py-3">
+                <p className="text-xs font-bold text-brand">
+                  📌 {item.case.label}
+                </p>
+                <p className="mt-1 text-sm leading-relaxed text-foreground/80">
+                  {item.case.text}
+                </p>
+                {item.case.link && (
+                  <a
+                    href={item.case.link.href}
+                    className="mt-2 inline-flex items-center gap-1 text-xs font-bold text-brand hover:text-brand-dark"
+                  >
+                    {item.case.link.label} <span aria-hidden>→</span>
+                  </a>
+                )}
+              </div>
             </div>
           </li>
         ))}

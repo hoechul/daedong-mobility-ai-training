@@ -80,6 +80,10 @@ export const CURRICULUM = [
     title: "오리엔테이션",
     subtitle: "Getting Started",
     desc: "교육 목표와 실습 환경(계정, 노트북)을 점검하고 60분 진행 순서를 안내합니다.",
+    case: {
+      label: "실습 준비 체크",
+      text: "노트북에서 ChatGPT · Claude · Gemini 중 최소 1개 로그인을 확인하고, 오늘 실습에서 다룰 '배터리 장착 공정 SOP', '도색 공정 품질 이슈', 'GS100 배터리 부품 납기' 3가지 실습 상황을 미리 훑어봅니다.",
+    },
   },
   {
     step: "02",
@@ -89,6 +93,10 @@ export const CURRICULUM = [
     title: "생성형 AI 기초 이해",
     subtitle: "AI Basics",
     desc: "ChatGPT · Claude · Gemini의 차이와 제조 현장에서의 활용 포인트를 비교합니다.",
+    case: {
+      label: "비교 실습 사례",
+      text: "실습: 대동모빌리티 '빌트인 사계절 에어컨 카트 GA300 HVAC' 제품 소개 문구를 세 도구에 똑같이 입력해 결과의 톤 · 정확도 · 완성도 차이를 함께 비교해 봅니다.",
+    },
   },
   {
     step: "03",
@@ -98,6 +106,11 @@ export const CURRICULUM = [
     title: "[실습 1] 보고서 · 작업표준서 초안 작성",
     subtitle: "Hands-on: Documents",
     desc: "AI에게 역할과 형식을 지정해 업무 보고서와 SOP 초안을 직접 작성해 봅니다.",
+    case: {
+      label: "실습 사례",
+      text: "사례: 안성 본사 조립라인의 '배터리 장착 공정' 작업표준서(SOP)를 AI와 함께 10분 만에 초안으로 완성합니다.",
+      link: { href: "#mission-1", label: "실습 미션 1 바로 실행하기" },
+    },
   },
   {
     step: "04",
@@ -107,6 +120,11 @@ export const CURRICULUM = [
     title: "[실습 2] 품질 · 공정 데이터 요약",
     subtitle: "Hands-on: Data",
     desc: "품질 이슈 데이터와 생산일지를 AI로 정리하고 핵심 이슈를 요약합니다.",
+    case: {
+      label: "실습 사례",
+      text: "사례: 프리미엄 리무진 카트 'GA900' 도색 공정에서 발생한 품질 이슈 목록을 AI로 정리해 상위 3개 이슈와 재발 방지 대책 초안을 뽑아냅니다.",
+      link: { href: "#mission-2", label: "실습 미션 2 바로 실행하기" },
+    },
   },
   {
     step: "05",
@@ -116,6 +134,11 @@ export const CURRICULUM = [
     title: "[실습 3] 사내 공지 · 거래처 커뮤니케이션",
     subtitle: "Hands-on: Communication",
     desc: "사내 공지문과 해외 거래처용 영문 이메일을 AI와 함께 작성 · 번역합니다.",
+    case: {
+      label: "실습 사례",
+      text: "사례: 전기스쿠터 'GS100' 시리즈 배터리 부품을 공급하는 해외 협력사에 납기 단축을 요청하는 비즈니스 영문 이메일을 AI와 함께 작성합니다.",
+      link: { href: "#mission-3", label: "실습 미션 3 바로 실행하기" },
+    },
   },
   {
     step: "06",
@@ -125,6 +148,10 @@ export const CURRICULUM = [
     title: "마무리 & Q&A",
     subtitle: "Wrap-up",
     desc: "사내 AI 활용 가이드와 보안 준수사항을 안내하고 질의응답으로 마무리합니다.",
+    case: {
+      label: "마무리 사례",
+      text: "사례: 오늘 완성한 SOP · 품질 요약 · 거래처 이메일 3종을 안성 본사와 대구 제2공장 담당자에게 공유하는 교육 후기 공지문을 AI와 함께 정리하며 마무리합니다.",
+    },
   },
 ];
 
