@@ -48,7 +48,7 @@ export default function ToolCompare() {
 
         <div className="mt-6 rounded-2xl border border-brand/20 bg-brand-light px-6 py-5 text-sm leading-relaxed text-foreground/80">
           💳 <strong>크레딧 절약 팁</strong> — 세 서비스 모두 무료 요금제로
-          오늘 실습에 필요한 3가지 미션을 전부 진행할 수 있습니다. 결과가
+          오늘 실습에 필요한 4가지 미션을 전부 진행할 수 있습니다. 결과가
           부족하면 프롬프트에 &ldquo;표로 정리해줘&rdquo;, &ldquo;3줄로
           요약해줘&rdquo;처럼 형식을 구체적으로 지정해 다시 시도해 보세요.
         </div>

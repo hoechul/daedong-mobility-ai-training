@@ -111,11 +111,12 @@ export default function ChatbotLab() {
             {CHATBOT_KNOWLEDGE.filesIntro}
           </p>
           <div className="mt-4 overflow-x-auto">
-            <table className="w-full min-w-[480px] border-collapse text-sm">
+            <table className="w-full min-w-[560px] border-collapse text-sm">
               <thead>
                 <tr className="border-b border-border text-left text-xs font-bold uppercase tracking-wide text-muted">
                   <th className="py-2 pr-4">첨부 문서</th>
-                  <th className="py-2">주요 내용</th>
+                  <th className="py-2 pr-4">주요 내용</th>
+                  <th className="py-2">다운로드</th>
                 </tr>
               </thead>
               <tbody>
@@ -124,7 +125,18 @@ export default function ChatbotLab() {
                     <td className="py-2.5 pr-4 font-semibold text-foreground/80">
                       📄 {file.name}
                     </td>
-                    <td className="py-2.5 text-foreground/70">{file.desc}</td>
+                    <td className="py-2.5 pr-4 text-foreground/70">
+                      {file.desc}
+                    </td>
+                    <td className="py-2.5">
+                      <a
+                        href={file.file}
+                        download={file.name}
+                        className="inline-flex items-center gap-1 rounded-full bg-brand-light px-3 py-1 text-xs font-bold text-brand hover:bg-brand hover:text-white transition-colors"
+                      >
+                        ⬇ 다운로드
+                      </a>
+                    </td>
                   </tr>
                 ))}
               </tbody>

@@ -197,12 +197,14 @@ export default function WorkflowLab() {
                 </p>
                 <div className="mt-1 flex flex-wrap gap-1.5">
                   {WORKFLOW_AGENT_A.files.map((f) => (
-                    <span
-                      key={f}
-                      className="rounded-full bg-surface px-3 py-1 text-xs font-medium text-foreground/70"
+                    <a
+                      key={f.name}
+                      href={f.file}
+                      download={f.name}
+                      className="inline-flex items-center gap-1 rounded-full bg-surface px-3 py-1 text-xs font-medium text-foreground/70 hover:bg-brand-light hover:text-brand transition-colors"
                     >
-                      📄 {f}
-                    </span>
+                      📄 {f.name} <span aria-hidden>⬇</span>
+                    </a>
                   ))}
                 </div>
                 <p className="mt-2 text-sm leading-relaxed text-foreground/80">
@@ -222,12 +224,14 @@ export default function WorkflowLab() {
                 </p>
                 <div className="mt-1 flex flex-wrap gap-1.5">
                   {WORKFLOW_AGENT_B.files.map((f) => (
-                    <span
-                      key={f}
-                      className="rounded-full bg-surface px-3 py-1 text-xs font-medium text-foreground/70"
+                    <a
+                      key={f.name}
+                      href={f.file}
+                      download={f.name}
+                      className="inline-flex items-center gap-1 rounded-full bg-surface px-3 py-1 text-xs font-medium text-foreground/70 hover:bg-brand-light hover:text-brand transition-colors"
                     >
-                      📄 {f}
-                    </span>
+                      📄 {f.name} <span aria-hidden>⬇</span>
+                    </a>
                   ))}
                 </div>
                 <p className="mt-2 text-sm leading-relaxed text-foreground/80">

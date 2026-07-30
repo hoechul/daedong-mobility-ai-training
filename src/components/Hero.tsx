@@ -50,7 +50,7 @@ export default function Hero() {
             href="#practice"
             className="inline-flex items-center justify-center rounded-full border border-white/25 bg-white/5 px-7 py-3.5 text-sm font-bold text-white hover:bg-white/10 transition-colors"
           >
-            실습 미션 3가지 미리보기
+            실습 미션 4가지 미리보기
           </a>
           <a
             href="#resources"

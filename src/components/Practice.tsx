@@ -8,11 +8,12 @@ export default function Practice() {
       <div className="mx-auto max-w-6xl px-5 py-20 md:py-24">
         <SectionLabel>FEATURES · HANDS-ON</SectionLabel>
         <h2 className="text-2xl font-extrabold md:text-3xl">
-          실습 미션 3가지
+          실습 미션 4가지
         </h2>
         <p className="mt-3 max-w-2xl text-muted">
           아래 프롬프트를 그대로 복사해서 AI 도구에 붙여넣고, 결과를 우리
-          업무 상황에 맞게 다듬어 보세요.
+          업무 상황에 맞게 다듬어 보세요. 미션 4는 프로젝트 기능을 활용한
+          심화 리서치 실습입니다.
         </p>
 
         <div className="mt-10 space-y-6">

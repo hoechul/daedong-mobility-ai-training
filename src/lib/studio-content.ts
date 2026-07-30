@@ -95,10 +95,26 @@ export const CHATBOT_KNOWLEDGE = {
   filesIntro:
     "첨부한 PDF 문서는 임베딩(embedding) 검색으로 색인되어, 질문과 가장 관련 있는 문단을 찾아 답변 근거로 사용합니다.",
   files: [
-    { name: "관리기 사용설명서.pdf", desc: "시동 · 조작법, 정기점검 항목, 고장 코드표" },
-    { name: "예초기 사용설명서.pdf", desc: "안전수칙, 칼날 교체 주기, 엔진오일 규격" },
-    { name: "농기구 부품 카탈로그.pdf", desc: "소모품 · 부품 품번, 가격, 취급 대리점" },
-    { name: "AS 정책 및 보증기간 안내.pdf", desc: "무상보증 기간, 유상수리 기준, AS 접수 절차" },
+    {
+      name: "관리기 사용설명서.pdf",
+      desc: "시동 · 조작법, 정기점검 항목, 고장 코드표",
+      file: "/docs/관리기_사용설명서.pdf",
+    },
+    {
+      name: "예초기 사용설명서.pdf",
+      desc: "안전수칙, 칼날 교체 주기, 엔진오일 규격",
+      file: "/docs/예초기_사용설명서.pdf",
+    },
+    {
+      name: "농기구 부품 카탈로그.pdf",
+      desc: "소모품 · 부품 품번, 가격, 취급 대리점",
+      file: "/docs/농기구_부품_카탈로그.pdf",
+    },
+    {
+      name: "AS 정책 및 보증기간 안내.pdf",
+      desc: "무상보증 기간, 유상수리 기준, AS 접수 절차",
+      file: "/docs/AS_정책_및_보증기간_안내.pdf",
+    },
   ],
   connector: {
     intro:
@@ -157,10 +173,13 @@ export const WORKFLOW_CLASSIFY = {
 export const WORKFLOW_AGENT_A = {
   label: "Agent A — 농기구 상담사",
   files: [
-    "관리기 사용설명서.pdf",
-    "예초기 사용설명서.pdf",
-    "농기구 부품 카탈로그.pdf",
-    "AS 정책 및 보증기간 안내.pdf",
+    { name: "관리기 사용설명서.pdf", file: "/docs/관리기_사용설명서.pdf" },
+    { name: "예초기 사용설명서.pdf", file: "/docs/예초기_사용설명서.pdf" },
+    { name: "농기구 부품 카탈로그.pdf", file: "/docs/농기구_부품_카탈로그.pdf" },
+    {
+      name: "AS 정책 및 보증기간 안내.pdf",
+      file: "/docs/AS_정책_및_보증기간_안내.pdf",
+    },
   ],
   promptSummary:
     "관리기 · 예초기 · 운반차 등 농기구 관련 질문에 첨부 문서만 근거로 답한다. 회전날 · 고온부 등 위험요소는 안전 경고를 최우선으로 안내하고, 증상확인 → 예상원인 → 조치방법 → 안전주의 순으로 구조화해 답한다. 문서에 없는 사안은 가까운 대리점 · AS센터로 안내한다.",
@@ -169,10 +188,19 @@ export const WORKFLOW_AGENT_A = {
 export const WORKFLOW_AGENT_B = {
   label: "Agent B — 전기이동차량 상담사",
   files: [
-    "GA300 전동카트 사용설명서.pdf",
-    "GA900 전동카트 사용설명서.pdf",
-    "GS100 전동스쿠터 사용설명서.pdf",
-    "배터리 보증정책.pdf",
+    {
+      name: "GA300 전동카트 사용설명서.pdf",
+      file: "/docs/전동카트_사용자매뉴얼_GA300_GA900.pdf",
+    },
+    {
+      name: "GA900 전동카트 사용설명서.pdf",
+      file: "/docs/전동카트_사용자매뉴얼_GA300_GA900.pdf",
+    },
+    {
+      name: "GS100 전동스쿠터 사용설명서.pdf",
+      file: "/docs/GS100_전동스쿠터_사용설명서.pdf",
+    },
+    { name: "배터리 보증정책.pdf", file: "/docs/배터리_보증정책.pdf" },
   ],
   promptSummary:
     "전동카트(GA300 · GA900) · 전동스쿠터(GS100)의 충전 · 배터리 · 주행 관련 질문에 답한다. 과충전 · 침수 등 배터리 안전 경고를 최우선으로 안내하고, 보증기간은 반드시 근거 문서를 명시한다. 부품 가격 · 임의 개조 문의는 답변 범위 밖이므로 대리점으로 안내한다.",
@@ -206,7 +234,7 @@ export const STUDIO_RESOURCES = [
   {
     icon: "🏠",
     title: "60분 기초 실습 교안으로 돌아가기",
-    desc: "AI 기초 개념과 3가지 실습 미션을 다시 확인합니다.",
+    desc: "AI 기초 개념과 4가지 실습 미션을 다시 확인합니다.",
     href: "/",
   },
   {
