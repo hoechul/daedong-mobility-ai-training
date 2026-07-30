@@ -1,6 +1,6 @@
 export const NAV_LINKS = [
-  { href: "#overview", label: "교육 개요" },
-  { href: "/studio", label: "챗봇(워크플로우)" },
+  { href: "#overview", label: "팩트챗 실습" },
+  { href: "/studio", label: "챗봇(워크플로우) 실습" },
   { href: "#tools", label: "AI 도구 가이드" },
   { href: "#curriculum", label: "커리큘럼" },
   { href: "#practice", label: "실습 미션" },
