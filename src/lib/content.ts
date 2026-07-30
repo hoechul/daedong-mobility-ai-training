@@ -5,6 +5,7 @@ export const NAV_LINKS = [
   { href: "#practice", label: "실습 미션" },
   { href: "#tips", label: "활용 팁" },
   { href: "#resources", label: "자료 · 매뉴얼" },
+  { href: "/studio", label: "심화 실습" },
 ];
 
 export const HERO_STATS = [
@@ -243,6 +244,12 @@ export const TIPS = [
 ];
 
 export const RESOURCES = [
+  {
+    icon: "🤖",
+    title: "심화 실습: 챗봇 · 워크플로우 만들기",
+    desc: "농기구 · 전기이동차량 사업부 실제 사례로 나만의 상담봇을 직접 설계해보는 추가 실습 페이지",
+    href: "/studio",
+  },
   {
     icon: "📘",
     title: "교육 자료 PDF",

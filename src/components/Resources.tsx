@@ -1,18 +1,36 @@
 import SectionLabel from "./SectionLabel";
 import { RESOURCES } from "@/lib/content";
 
-export default function Resources() {
+type Resource = {
+  icon: string;
+  title: string;
+  desc: string;
+  href: string;
+  external?: boolean;
+};
+
+type ResourcesProps = {
+  id?: string;
+  title?: string;
+  subtitle?: string;
+  items?: Resource[];
+};
+
+export default function Resources({
+  id = "resources",
+  title = "자료 · 매뉴얼",
+  subtitle = "교육이 끝난 뒤에도 다시 찾아볼 수 있는 자료입니다.",
+  items = RESOURCES,
+}: ResourcesProps) {
   return (
-    <section id="resources" className="bg-surface">
+    <section id={id} className="bg-surface">
       <div className="mx-auto max-w-6xl px-5 py-20 md:py-24">
         <SectionLabel>RESOURCES</SectionLabel>
-        <h2 className="text-2xl font-extrabold md:text-3xl">자료 · 매뉴얼</h2>
-        <p className="mt-3 max-w-2xl text-muted">
-          교육이 끝난 뒤에도 다시 찾아볼 수 있는 자료입니다.
-        </p>
+        <h2 className="text-2xl font-extrabold md:text-3xl">{title}</h2>
+        <p className="mt-3 max-w-2xl text-muted">{subtitle}</p>
 
         <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
-          {RESOURCES.map((res) => (
+          {items.map((res) => (
             <a
               key={res.title}
               href={res.href}

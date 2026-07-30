@@ -1,17 +1,29 @@
 import SectionLabel from "./SectionLabel";
 import { TIPS } from "@/lib/content";
 
-export default function Tips() {
+type Tip = { icon: string; text: string };
+
+type TipsProps = {
+  id?: string;
+  title?: string;
+  subtitle?: string;
+  items?: Tip[];
+};
+
+export default function Tips({
+  id = "tips",
+  title = "활용 팁 & 유의사항",
+  subtitle = "실습을 마친 뒤에도 현업에서 꼭 기억해야 할 6가지입니다.",
+  items = TIPS,
+}: TipsProps) {
   return (
-    <section id="tips" className="mx-auto max-w-6xl px-5 py-20 md:py-24">
+    <section id={id} className="mx-auto max-w-6xl px-5 py-20 md:py-24">
       <SectionLabel>TIPS</SectionLabel>
-      <h2 className="text-2xl font-extrabold md:text-3xl">활용 팁 &amp; 유의사항</h2>
-      <p className="mt-3 max-w-2xl text-muted">
-        실습을 마친 뒤에도 현업에서 꼭 기억해야 할 6가지입니다.
-      </p>
+      <h2 className="text-2xl font-extrabold md:text-3xl">{title}</h2>
+      <p className="mt-3 max-w-2xl text-muted">{subtitle}</p>
 
       <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {TIPS.map((tip) => (
+        {items.map((tip) => (
           <div
             key={tip.text}
             className="flex items-start gap-3 rounded-2xl border border-border bg-white p-5"
