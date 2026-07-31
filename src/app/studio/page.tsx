@@ -17,7 +17,7 @@ import {
 export const metadata: Metadata = {
   title: "챗봇 · 워크플로우 만들기 심화 실습 | 대동모빌리티 AI 스튜디오",
   description:
-    "대동모빌리티 농기구 · 전기이동차량 사업부 실제 사례로 AI 챗봇과 워크플로우를 직접 설계해보는 심화 실습 페이지입니다.",
+    "대동모빌리티 모빌리티사업부(e-스쿠터 · 골프카트 · 운반로봇) 실제 사례로 AI 챗봇과 워크플로우를 직접 설계해보는 심화 실습 페이지입니다.",
 };
 
 export default function StudioPage() {

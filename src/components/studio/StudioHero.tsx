@@ -22,10 +22,10 @@ export default function StudioHero() {
         </h1>
 
         <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg">
-          60분 기초 실습을 마쳤다면, 이제 AI 스튜디오에서 대동모빌리티 농기구 ·
-          전기이동차량 사업부 사례로 실제 상담봇을 설계해 봅니다. 실습①은 챗봇
-          한 개 만들기, 실습②는 두 사업부를 하나로 통합하는 워크플로우
-          챗봇입니다.
+          60분 기초 실습을 마쳤다면, 이제 AI 스튜디오에서 대동모빌리티
+          모빌리티사업부(e-스쿠터 · 골프카트 · 운반로봇) 사례로 실제 상담봇을
+          설계해 봅니다. 실습①은 챗봇 한 개 만들기, 실습②는 두 제품 라인을
+          하나로 통합하는 워크플로우 챗봇입니다.
         </p>
 
         <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4 md:max-w-2xl">

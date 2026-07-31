@@ -72,14 +72,18 @@ export default function WorkflowLab() {
               </span>
               <div className="flex flex-wrap items-start justify-center gap-8">
                 <div className="flex flex-col items-center gap-1.5">
-                  <span className="text-xs font-bold text-brand">농기구</span>
-                  <NodeChip icon="🚜" label="Agent A" sub="농기구 상담사" />
+                  <span className="text-xs font-bold text-brand">운반로봇</span>
+                  <NodeChip icon="🤖" label="Agent A" sub="운반로봇 상담사" />
                 </div>
                 <div className="flex flex-col items-center gap-1.5">
                   <span className="text-xs font-bold text-brand">
-                    전기이동차량
+                    e-스쿠터 · 골프카트
                   </span>
-                  <NodeChip icon="⚡" label="Agent B" sub="전기이동차량 상담사" />
+                  <NodeChip
+                    icon="⚡"
+                    label="Agent B"
+                    sub="e-스쿠터 · 골프카트 상담사"
+                  />
                 </div>
               </div>
               <span className="text-muted" aria-hidden>

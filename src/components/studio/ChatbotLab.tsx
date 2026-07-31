@@ -26,9 +26,9 @@ export default function ChatbotLab() {
         챗봇 만들기 — 「{CHATBOT_PROFILE.name}」
       </h2>
       <p className="mt-3 max-w-2xl text-muted">
-        농기구(관리기 · 예초기 · 운반차) 사용설명서와 AS 정책 문서를 근거로
-        사용법 문의부터 고장 조치, AS 접수까지 안내하는 챗봇을 스튜디오에서
-        직접 만듭니다. 프로필 → 동작 → 지식 → 공유 탭 순서로 완성합니다.
+        운반로봇(DR-100) 사용설명서와 AS 정책 문서를 근거로 사용법 문의부터
+        고장 조치, AS 접수까지 안내하는 챗봇을 스튜디오에서 직접 만듭니다.
+        프로필 → 동작 → 지식 → 공유 탭 순서로 완성합니다.
       </p>
 
       <div className="mt-10 space-y-6">
